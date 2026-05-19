@@ -1,0 +1,22 @@
+{
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": ["/favicon.ico", "/assets/*"]
+  },
+  "routes": [
+    {
+      "route": "/",
+      "statusCode": 301,
+      "redirect": "https://www.soccerforchange.org/"
+    },
+    {
+      "route": "/*",
+      "allowedRoles": ["anonymous"]
+    }, 
+        {
+      "route": "/.git/*",
+      "serve": "/404.html",
+      "statusCode": 404
+    }
+  ]
+}
