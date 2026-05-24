@@ -75,15 +75,33 @@
   .fact-card h4 { font-size: 0.85rem; font-weight: 800; color: var(--text-dark); margin-bottom: 0.2rem; }
   .fact-card p { font-size: 0.8rem; color: var(--text-muted); font-weight: 600; }
 
-  /* TEAM */
+  /* ── TEAM ── */
   #team { background: var(--warm-white); }
   .team-section-label { font-size: 1rem; font-weight: 900; color: var(--text-dark); margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--green-pale); }
-  .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 1.25rem; margin-bottom: 3rem; }
-  .team-card { background: white; border-radius: 20px; overflow: hidden; border: 1px solid rgba(64,145,108,0.1); transition: transform 0.2s, box-shadow 0.2s; }
+  .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 1.25rem; margin-bottom: 3rem; }
+
+  /* Staff card — photo on top, info below */
+  .team-card { background: white; border-radius: 20px; overflow: hidden; border: 1px solid rgba(64,145,108,0.1); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
   .team-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(45,106,79,0.1); }
-  .team-avatar { height: 80px; display: flex; align-items: center; justify-content: center; }
-  .avatar-circle { width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 900; color: white; }
-  .team-card-body { padding: 0 1.25rem 1.25rem; }
+
+  /* Photo container — fixed height, shows image OR initials fallback */
+  .team-photo {
+    width: 100%; height: 220px; overflow: hidden; position: relative;
+    background: var(--green-pale); display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  /* ↓ Real photo — add src="images/yourname.jpg" to show it */
+  .team-photo img {
+    width: 100%; height: 100%; object-fit: cover; object-position: top;
+    display: block;
+  }
+  /* Initials circle shown when NO image is present */
+  .team-photo .initials {
+    width: 80px; height: 80px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 900; color: white;
+  }
+  .team-card-body { padding: 1.1rem 1.25rem 1.25rem; flex: 1; }
   .team-card-body h3 { font-size: 1.05rem; font-weight: 800; color: var(--text-dark); margin-bottom: 0.15rem; }
   .team-role { font-size: 0.7rem; font-weight: 800; color: var(--amber); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.6rem; }
   .team-card-body p { font-size: 0.83rem; color: var(--text-muted); font-weight: 600; line-height: 1.55; }
@@ -91,21 +109,85 @@
   .join-banner h3 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 900; margin-bottom: 0.5rem; }
   .join-banner p { color: var(--text-muted); font-weight: 600; font-size: 0.92rem; max-width: 500px; margin: 0 auto 1.5rem; }
 
-  /* REGISTER */
+  /* ── REGISTER ── */
   #register { background: var(--cream); }
-  .camp-card { background: white; border-radius: 20px; overflow: hidden; border: 1px solid rgba(64,145,108,0.1); margin-bottom: 1.5rem; display: flex; transition: transform 0.2s, box-shadow 0.2s; }
+
+  /* Upcoming / Past section headers */
+  .camps-divider {
+    display: flex; align-items: center; gap: 1rem; margin: 2.5rem 0 1.5rem;
+  }
+  .camps-divider:first-of-type { margin-top: 0; }
+  .camps-divider h3 {
+    font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 900;
+    color: var(--text-dark); white-space: nowrap;
+  }
+  .camps-divider .divider-line {
+    flex: 1; height: 2px; background: var(--green-pale); border-radius: 2px;
+  }
+  .camps-divider .divider-badge {
+    background: var(--green-pale); color: var(--green-mid);
+    font-size: 0.72rem; font-weight: 800; padding: 0.2rem 0.75rem;
+    border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap;
+  }
+  .camps-divider.past h3 { color: var(--text-muted); }
+  .camps-divider.past .divider-badge { background: #f0f0f0; color: #888; }
+
+  /* Upcoming camp cards — horizontal layout with image */
+  .camp-card { background: white; border-radius: 20px; overflow: hidden; border: 1px solid rgba(64,145,108,0.1); margin-bottom: 1.25rem; display: flex; transition: transform 0.2s, box-shadow 0.2s; }
   .camp-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(45,106,79,0.1); }
-  .camp-img { width: 200px; flex-shrink: 0; background: var(--green-mid); display: flex; align-items: center; justify-content: center; font-size: 3.5rem; }
-  @media(max-width:600px){ .camp-card{flex-direction:column;} .camp-img{width:100%;height:120px;} }
+
+  /* Camp image panel */
+  .camp-img {
+    width: 220px; flex-shrink: 0; background: var(--green-mid);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3.5rem; overflow: hidden; position: relative;
+  }
+  .camp-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  /* Emoji shown when no image */
+  .camp-img .camp-emoji { font-size: 3.5rem; }
+
+  @media(max-width:600px){ .camp-card{flex-direction:column;} .camp-img{width:100%;height:160px;} }
+
   .camp-body { padding: 1.75rem; flex: 1; }
-  .camp-body h3 { font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 900; color: var(--text-dark); margin-bottom: 0.5rem; }
-  .camp-body p { color: var(--text-muted); font-weight: 600; font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.25rem; }
+  .camp-body h3 { font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 900; color: var(--text-dark); margin-bottom: 0.5rem; }
+  .camp-body > p { color: var(--text-muted); font-weight: 600; font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.25rem; }
   .camp-meta { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.25rem; }
   .camp-meta span { display: flex; align-items: center; gap: 5px; font-size: 0.82rem; font-weight: 700; color: var(--text-mid); background: var(--cream); padding: 0.3rem 0.75rem; border-radius: 100px; }
   .btn-camp { padding: 0.7rem 1.5rem; border-radius: 100px; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.9rem; text-decoration: none; border: none; cursor: pointer; transition: background 0.15s, transform 0.15s; display: inline-block; }
   .btn-camp.active { background: var(--green-mid); color: white; }
   .btn-camp.active:hover { background: var(--green-dark); transform: translateY(-2px); }
   .btn-camp.disabled { background: #d1d5db; color: #6b7280; cursor: not-allowed; }
+
+  /* Past camps — compact card grid with photo */
+  .past-camps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+  .past-camp-card {
+    background: white; border-radius: 16px; overflow: hidden;
+    border: 1px solid rgba(64,145,108,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .past-camp-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(45,106,79,0.1); }
+  .past-camp-photo {
+    width: 100%; height: 180px; overflow: hidden;
+    background: #e8f4ec; display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .past-camp-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  /* Placeholder shown when no photo */
+  .past-camp-photo .photo-placeholder {
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: var(--text-muted); font-size: 0.8rem; font-weight: 700;
+  }
+  .past-camp-photo .photo-placeholder span { font-size: 2.5rem; }
+  .past-camp-body { padding: 1rem 1.25rem 1.25rem; }
+  .past-camp-body h4 { font-size: 1rem; font-weight: 800; color: var(--text-dark); margin-bottom: 0.25rem; }
+  .past-camp-date { font-size: 0.78rem; color: var(--text-muted); font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 5px; }
+  .past-camp-body p { font-size: 0.83rem; color: var(--text-muted); font-weight: 600; line-height: 1.5; }
+  .past-badge { display: inline-block; background: #f0f0f0; color: #888; font-size: 0.7rem; font-weight: 800; padding: 0.15rem 0.6rem; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.5rem; }
 
   /* DONATIONS */
   #donations { background: var(--green-dark); position: relative; overflow: hidden; }
@@ -233,7 +315,7 @@
         <div class="stat-row">
           <div class="stat-box"><span class="stat-num">500+</span><span class="stat-label">Kids Served</span></div>
           <div class="stat-box"><span class="stat-num">$0</span><span class="stat-label">Cost to Join</span></div>
-          <div class="stat-box"><span class="stat-num">7</span><span class="stat-label">Coaches</span></div>
+          <div class="stat-box"><span class="stat-num">6</span><span class="stat-label">Coaches</span></div>
         </div>
       </div>
     </div>
@@ -253,7 +335,7 @@
         </div>
         <div class="about-col">
           <h3>What we do</h3>
-          <p>We provide accessible coaching through free programs. Our high school coaching staff has experience going through the young player pathway and knows what it takes to thrive as an elite soccer player. Your child will learn the skills they need to advance as a young player and build confidence, all while gaining a newfound passion for the sport. We also seek to provide students with high school mentors who can help teach and support them as students.</p>
+          <p>We provide accessible coaching through free programs. Our high school coaching staff has experience going through the young player pathway and knows what it takes to thrive as an elite soccer player. Your child will learn the skills they need to advance as a young player and build confidence, all while gaining a newfound passion for the sport.</p>
         </div>
         <div class="mission-banner">
           <p>Our mission is to:</p>
@@ -279,62 +361,99 @@
   <div class="section-inner">
     <span class="section-tag">Leadership</span>
     <h2 class="section-title">Meet the Team</h2>
-    <p class="section-desc">Our coaches are passionate high school athletes who have lived the youth soccer journey themselves and are dedicated to giving back.</p>
+    <p class="section-desc">Our coaches are passionate high school athletes dedicated to giving back to the Bellevue community.</p>
 
     <p class="team-section-label">Co-Founders</p>
     <div class="team-grid">
+
+      <!-- ─────────────────────────────────────────────────────────────
+           HOW TO ADD A PHOTO:
+           1. Upload the photo file (e.g. vedanth.jpg) to your GitHub repo
+              in a folder called "images/" so it lives at images/vedanth.jpg
+           2. Replace the src="" below with the correct filename
+           3. Delete the <div class="initials"> block for that card
+           ───────────────────────────────────────────────────────────── -->
+
       <div class="team-card">
-        <div class="team-avatar"><div class="avatar-circle" style="background:var(--green-mid)">VR</div></div>
+        <div class="team-photo" style="background:#d8f3dc;">
+          <!-- PHOTO: replace src with your image, e.g. src="images/vedanth.jpg" -->
+          <!-- <img src="images/vedanth.jpg" alt="Vedanth Rao" /> -->
+          <div class="initials" style="background:var(--green-mid)">VR</div>
+        </div>
         <div class="team-card-body">
           <h3>Vedanth Rao</h3>
-          <div class="team-role">Head Coach &amp; Software Lead</div>
+          <div class="team-role">Co-Founder &amp; Head Coach</div>
           <p>Vedanth has 6 years of premier soccer experience, 2 years of select experience, and is a current player at Interlake High School. He has an ever-growing passion for the sport and loves sharing his skills with others.</p>
         </div>
       </div>
+
       <div class="team-card">
-        <div class="team-avatar"><div class="avatar-circle" style="background:var(--orange)">AD</div></div>
+        <div class="team-photo" style="background:#fde8df;">
+          <!-- <img src="images/adel.jpg" alt="Adel Dekhani" /> -->
+          <div class="initials" style="background:var(--orange)">AD</div>
+        </div>
         <div class="team-card-body">
           <h3>Adel Dekhani</h3>
-          <div class="team-role">Administrator &amp; Class Coordinator</div>
+          <div class="team-role">Co-Founder &amp; Administrator</div>
           <p>Adel is a high schooler with a passion for fitness and over 3 years of teaching experience with Bellevue Ski School. He has extensive experience working with kids and understands how to create environments where skills flourish.</p>
         </div>
       </div>
+
     </div>
 
     <p class="team-section-label">Our Team</p>
     <div class="team-grid">
+
       <div class="team-card">
-        <div class="team-avatar"><div class="avatar-circle" style="background:#0f6e56">LT</div></div>
+        <div class="team-photo" style="background:#d8f3dc;">
+          <!-- <img src="images/liam.jpg" alt="Liam Ko" /> -->
+          <div class="initials" style="background:#0f6e56">LK</div>
+        </div>
         <div class="team-card-body">
           <h3>Liam Ko</h3>
-          <div class="team-role">Fundraising coordinator</div>
-          <p>Liam has 9 years of club soccer experience, ranging from rec to premier. He is passionate about making the sport more inclusive and impacting the community. Currently, he is the Fundraising Coordinator and handles all donations and grants.</p>
+          <div class="team-role">Fundraising Coordinator</div>
+          <p>Liam has 9 years of club soccer experience, ranging from rec to premier. He is passionate about making the sport more inclusive and impacting the community. He handles all donations and grants.</p>
         </div>
       </div>
+
       <div class="team-card">
-        <div class="team-avatar"><div class="avatar-circle" style="background:#185fa5">MB</div></div>
+        <div class="team-photo" style="background:#dbeafe;">
+          <!-- <img src="images/drew.jpg" alt="Drew Peach" /> -->
+          <div class="initials" style="background:#185fa5">DP</div>
+        </div>
         <div class="team-card-body">
           <h3>Drew Peach</h3>
-          <div class="team-role">Outreach Director & Head Coach</div>
-          <p>Drew has [textttt]</p>
+          <div class="team-role">Outreach Director &amp; Head Coach</div>
+          <!-- Replace [textttt] with Drew's real bio when ready -->
+          <p>Drew brings passion and dedication to both outreach and on-field coaching. Bio coming soon.</p>
         </div>
       </div>
+
       <div class="team-card">
-        <div class="team-avatar"><div class="avatar-circle" style="background:#854f0b">MX</div></div>
+        <div class="team-photo" style="background:#fef3c7;">
+          <!-- <img src="images/annatje.jpg" alt="Annatje Van Der Bogert" /> -->
+          <div class="initials" style="background:#854f0b">AV</div>
+        </div>
         <div class="team-card-body">
           <h3>Annatje Van Der Bogert</h3>
           <div class="team-role">Photographer / Videographer</div>
-          <p>Annatje has [textt]</p>
+          <!-- Replace [textt] with Annatje's real bio when ready -->
+          <p>Annatje captures the energy and spirit of our camps through photography and video. Bio coming soon.</p>
         </div>
       </div>
+
       <div class="team-card">
-        <div class="team-avatar"><div class="avatar-circle" style="background:#993556">SS</div></div>
+        <div class="team-photo" style="background:#fce7f3;">
+          <!-- <img src="images/atharva.jpg" alt="Atharva Patil" /> -->
+          <div class="initials" style="background:#993556">AP</div>
+        </div>
         <div class="team-card-body">
           <h3>Atharva Patil</h3>
           <div class="team-role">Software Lead &amp; Head Coach</div>
-          <p>Atharva has 13 years of competitive soccer experience with over 10 years at the premier level. He manages the software side of organization and also helps plan and lead our camps. He focuses on providing kids with the right tools to succeed, through supportive coaching, impactful drills, all while instilling a love for the game.</p>
+          <p>Atharva has 13 years of competitive soccer experience with over 10 years at the premier level. He manages the software side of the organization and helps plan and lead camps, focusing on supportive coaching and impactful drills.</p>
         </div>
       </div>
+
     </div>
 
     <div class="join-banner">
@@ -352,62 +471,95 @@
     <h2 class="section-title">Camp Registration</h2>
     <p class="section-desc">All camps are completely free for all participants.</p>
 
-<div class="camp-card">
-      <div class="camp-img">⚽</div>
-      <div class="camp-body">
-        <h3>Summer 2026 camp</h3>
-        <p>Interest Form! While we haven't finalized on specific dates yet due to logistic and fundraising issues, fill out his form so we can gauge interest and set dates when people are most interested.
-         Open to all skill levels. Whether your child wants to sharpen skills with position-specific training or just have fun and learn the game, there's a place for everyone. Campers will build confidence, make friends, and be guided by mentors who care about growth on and off the field.</p>
-        <div class="camp-meta">
-          <span>📅 June/July/August</span>
-          <span>📍 TBD: Field located in Bellevue</span>
-          <span>💰 Free for all participants</span>
-         <span>👦 Ages 7–12</span>
-        </div>
-        <a href="https://forms.gle/eQQjwe22mpJA8heg9" target="_blank" rel="noopener noreferrer" class="btn-camp active">Register Now →</a>
-      </div>
+    <!-- ── UPCOMING CAMPS ── -->
+    <div class="camps-divider">
+      <h3>Upcoming Camps</h3>
+      <div class="divider-line"></div>
+      <span class="divider-badge">Open for registration</span>
     </div>
 
     <div class="camp-card">
-      <div class="camp-img">🏅</div>
+      <div class="camp-img">
+        <!-- PHOTO: replace with a real camp photo, e.g. <img src="images/summer2026.jpg" alt="Summer 2026 Camp" /> -->
+        <span class="camp-emoji">⚽</span>
+      </div>
       <div class="camp-body">
-        <h3>Mid-Winter Break 2026 Camp</h3>
-        <p>Designed for kids ages 7–12 of all skill levels. Participants train in small groups with focused drills and competitive games, while meeting new people and developing their skills. Our camps are taught by varsity and premier high school athletes who are passionate about developing the next generation.</p>
+        <h3>Summer 2026 Camp — Interest Form</h3>
+        <p>While we haven't finalized specific dates yet due to logistics and fundraising, fill out this form so we can gauge interest and set dates when people are most available. Open to all skill levels — whether your child wants to sharpen skills with position-specific training or just have fun and learn the game, there's a place for everyone.</p>
         <div class="camp-meta">
-          <span>📅 February 16–20th, 9 AM–11 AM</span>
-          <span>📍 Enatai Elementary, 10700 SE 25th St, Bellevue, WA 98004</span>
+          <span>📅 June / July / August 2026</span>
+          <span>📍 TBD — Field in Bellevue</span>
           <span>💰 Free for all participants</span>
           <span>👦 Ages 7–12</span>
         </div>
-        <button class="btn-camp disabled" disabled>Camp No Longer Available</button>
+        <a href="https://forms.gle/eQQjwe22mpJA8heg9" target="_blank" rel="noopener noreferrer" class="btn-camp active">Fill Out Interest Form →</a>
       </div>
     </div>
-   
-   <div class="camp-card">
-      <div class="camp-img">⚽</div>
-      <div class="camp-body">
-        <h3>Fall 2025 camp</h3>
-        <p>Sign up to secure your spot in our free soccer camp! Open to all skill levels, with players grouped accordingly and coached by top-tier high school athletes from premier and select teams. Whether your child wants to sharpen skills with position-specific training or just have fun and learn the game, there's a place for everyone. Campers will build confidence, make friends, and be guided by mentors who care about growth on and off the field.</p>
-        <div class="camp-meta">
-          <span>📅 October 4–25th, Saturdays 3–5 PM</span>
-          <span>📍 Enatai Elementary School, Bellevue, WA</span>
-          <span>💰 Free for all participants</span>
-        </div>
-        <button class="btn-camp disabled" disabled>Camp No Longer Available</button>
-      </div>
+
+    <!-- ── PAST CAMPS ── -->
+    <div class="camps-divider past">
+      <h3>Past Camps</h3>
+      <div class="divider-line"></div>
+      <span class="divider-badge">No longer available</span>
     </div>
-   <div class="camp-card">
-      <div class="camp-img">⚽</div>
-      <div class="camp-body">
-        <h3>2025 Summer camp</h3>
-        <p>Our summer camp last year.</p>
-        <div class="camp-meta">
-          <span>📅 August 2025</span>
-          <span>📍</span>
-          <span>💰 Free for all participants</span>
+
+    <!--
+      HOW TO ADD PHOTOS TO PAST CAMPS:
+      1. Upload your camp photos to GitHub in an "images/" folder
+      2. For each past-camp-card, replace the placeholder block with:
+         <img src="images/your-photo.jpg" alt="Camp name" />
+      3. Delete the <div class="photo-placeholder"> block for that card
+    -->
+    <div class="past-camps-grid">
+
+      <div class="past-camp-card">
+        <div class="past-camp-photo">
+          <!-- <img src="images/winter2026.jpg" alt="Mid-Winter Break Camp 2026" /> -->
+          <div class="photo-placeholder">
+            <span>🏅</span>
+            Add a photo!
+          </div>
         </div>
-        <button class="btn-camp disabled" disabled>Camp No Longer Available</button>
+        <div class="past-camp-body">
+          <span class="past-badge">Ended</span>
+          <h4>Mid-Winter Break Camp 2026</h4>
+          <div class="past-camp-date">📅 February 16–20, 2026 &nbsp;·&nbsp; 9–11 AM</div>
+          <p>Small-group drills and competitive games for kids ages 7–12. Held at Enatai Elementary, 10700 SE 25th St, Bellevue.</p>
+        </div>
       </div>
+
+      <div class="past-camp-card">
+        <div class="past-camp-photo">
+          <!-- <img src="images/fall2025.jpg" alt="Fall 2025 Camp" /> -->
+          <div class="photo-placeholder">
+            <span>⚽</span>
+            Add a photo!
+          </div>
+        </div>
+        <div class="past-camp-body">
+          <span class="past-badge">Ended</span>
+          <h4>Fall 2025 Training Camp</h4>
+          <div class="past-camp-date">📅 October 4–25, 2025 &nbsp;·&nbsp; Saturdays 3–5 PM</div>
+          <p>Free soccer training camp open to all skill levels. Players grouped by ability and coached by top-tier high school athletes.</p>
+        </div>
+      </div>
+
+      <div class="past-camp-card">
+        <div class="past-camp-photo">
+          <!-- <img src="images/summer2025.jpg" alt="Summer 2025 Camp" /> -->
+          <div class="photo-placeholder">
+            <span>☀️</span>
+            Add a photo!
+          </div>
+        </div>
+        <div class="past-camp-body">
+          <span class="past-badge">Ended</span>
+          <h4>Summer 2025 Camp</h4>
+          <div class="past-camp-date">📅 August 2025</div>
+          <p>Our summer camp from last year. A great time with lots of fun drills, games, and new friendships made on the field.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -419,7 +571,7 @@
       <div>
         <span class="donate-tag">Support Our Mission</span>
         <h2 class="donate-title">Thank you to all our donors!</h2>
-        <p class="donate-desc">Your generous support helps us continue these camps, and give back to the community. We accept employer donation matching</p>
+        <p class="donate-desc">Your generous support helps us continue these camps and give back to the community. We also accept employer donation matching.</p>
         <ul class="impact-list">
           <li><span class="impact-dot"></span> $25 provides a soccer ball for one camper</li>
           <li><span class="impact-dot"></span> $50 covers one child's full camp season</li>
@@ -452,23 +604,11 @@
     </div>
     <div class="grants-section">
       <h3 class="grants-title">Our Grants</h3>
-      <p class="grants-subtitle">We are deeply grateful to the organizations that make our camps possible through their support.</p>
+      <p class="grants-subtitle">We are deeply grateful to the organizations that make our camps possible through their generous support.</p>
       <div class="grants-grid">
-        <div class="grant-card">
-          <h4>Thunderbird Foundation Grant</h4>
-          <span class="grant-amount">$500</span>
-          <p>Supporting community soccer coaching programs.</p>
-        </div>
-        <div class="grant-card">
-          <h4>City of Bellevue Community Programming Fund</h4>
-          <span class="grant-amount">$1,000</span>
-          <p>Helping expand equal-access soccer opportunities.</p>
-        </div>
-        <div class="grant-card">
-          <h4>Google Ad Grants</h4>
-          <span class="grant-amount">$13,000</span>
-          <p>Advertising support to expand our nonprofit mission.</p>
-        </div>
+        <div class="grant-card"><h4>Thunderbird Foundation Grant</h4><span class="grant-amount">$500</span><p>Supporting community soccer coaching programs.</p></div>
+        <div class="grant-card"><h4>City of Bellevue Community Programming Fund</h4><span class="grant-amount">$1,000</span><p>Helping expand equal-access soccer opportunities.</p></div>
+        <div class="grant-card"><h4>Google Ad Grants</h4><span class="grant-amount">$13,000</span><p>Advertising support to expand our nonprofit mission.</p></div>
       </div>
     </div>
   </div>
