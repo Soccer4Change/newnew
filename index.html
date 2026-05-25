@@ -86,7 +86,7 @@
 
   /* Photo container — fixed height, shows image OR initials fallback */
   .team-photo {
-    width: 100%; height: 220px; overflow: hidden; position: relative;
+    width: 100%; height: 300px; overflow: hidden; position: relative;
     background: var(--green-pale); display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
   }
@@ -372,9 +372,7 @@
            2. Replace the src="" below with the correct filename
            3. Delete the <div class="initials"> block for that card
            ───────────────────────────────────────────────────────────── -->
-    
-
-    </div>
+   
 
     <p class="team-section-label">Our Team</p>
     <div class="team-grid">
@@ -449,8 +447,6 @@
           <p>Adel is a high schooler with a passion for fitness and over 3 years of teaching experience with Bellevue Ski School. He has extensive experience working with kids and understands how to create environments where skills flourish.</p>
         </div>
       </div>
-
-    </div>
 
     <div class="join-banner">
       <h3>Interested in Joining Our Team?</h3>
@@ -605,11 +601,10 @@
       <div class="contact-info">
         <span class="section-tag">Get In Touch</span>
         <h3>We'd love to hear from you</h3>
-        <p>Questions about registration, volunteering, or partnering with us? Reach out — we're friendly and respond quickly.</p>
+        <p>Questions about registration, volunteering, or partnering with us?</p>
         <a class="contact-detail" href="mailto:contact@soccerforchange.org"><div class="contact-icon">✉️</div>contact@soccerforchange.org</a>
-        <a class="contact-detail" href="tel:+12068234334"><div class="contact-icon">📞</div>(206)-823-4334</a>
+        <a class="contact-detail" href="tel:+14255311772"><div class="contact-icon">📞</div>(425)-531-1772</a>
         <div class="contact-detail"><div class="contact-icon">📍</div>Bellevue, Washington</div>
-        <div class="contact-detail"><div class="contact-icon">🏫</div>Enatai Elementary · 10700 SE 25th St, Bellevue WA 98004</div>
       </div>
       <div class="contact-form">
         <div class="form-row">
@@ -683,15 +678,36 @@
     if (!amount || amount <= 0) { showToast('Please select or enter a donation amount.'); return; }
     window.open('https://givebutter.com/soccerforchange', '_blank', 'noopener,noreferrer');
   }
-  function handleContact() {
-    const name = document.getElementById('firstName').value.trim();
-    const email = document.getElementById('email').value.trim();
-    if (!name || !email) { showToast('Please fill in your name and email.'); return; }
-    const subject = document.getElementById('interest').value || 'Website Inquiry';
-    const msg = document.getElementById('message').value;
-    const lastName = document.getElementById('lastName').value.trim();
-    const body = `Name: ${name} ${lastName}\nEmail: ${email}\nTopic: ${subject}\n\n${msg}`;
-    window.location.href = `mailto:contact@soccerforchange.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  async function handleContact() {
+  const name = document.getElementById('firstName').value.trim();
+  const email = document.getElementById('email').value.trim();
+  if (!name || !email) { showToast('Please fill in your name and email.'); return; }
+
+  const data = {
+    name: name + ' ' + document.getElementById('lastName').value.trim(),
+    email: email,
+    topic: document.getElementById('interest').value,
+    message: document.getElementById('message').value
+  };
+
+  try {
+    const response = await fetch('https://formspree.io/f/xeedlrzn', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+
+    if (response.ok) {
+      showToast('Message sent! We\'ll be in touch soon. ⚽');
+      ['firstName','lastName','email','message'].forEach(id => document.getElementById(id).value = '');
+      document.getElementById('interest').value = '';
+    } else {
+      showToast('Something went wrong — please email us directly.');
+    }
+  } catch {
+    showToast('Something went wrong — please email us directly.');
+  }
+}
   }
   function showToast(msg) {
     const t = document.getElementById('toast');
