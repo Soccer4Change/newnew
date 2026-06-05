@@ -5,18 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Soccer for Change</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fraunces:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --green-dark: #1a4731; --green-mid: #2d6a4f; --green: #40916c; --green-light: #74c69d; --green-pale: #d8f3dc;
-    --orange: #f4845f; --orange-dark: #c1440e; --orange-light: #fde8df; --amber: #FFA726;
-    --cream: #fdf8f2; --warm-white: #fffef9; --text-dark: #1c2b1f; --text-mid: #3a5244; --text-muted: #6b8f78;
+    --green-dark: #0B251A;     /* Deep athletic premium forest dark */
+    --green-mid: #164A31;      /* Rich hunter green for primary structural elements */
+    --green: #21724B;          /* Vibrant grass/pitch green */
+    --green-light: #5BB888;    /* Fresh accented green */
+    --green-pale: #E6F4ED;     /* Very soft mint background tint for high contrast readability */
+    --orange: #FF6B35;         /* Energetic modern coral-orange for action items */
+    --orange-dark: #D64513;    /* Deep hover accent coral */
+    --orange-light: #FFF0EA;   /* Light background contrast accent */
+    --amber: #FFB300;
+    --cream: #FAF6F0;          /* Elegant warm soft cream backdrop */
+    --warm-white: #ffffff; 
+    --text-dark: #111C16;      /* High contrast dark text with a deep forest undertone */
+    --text-mid: #2E4238; 
+    --text-muted: #5C7367;
   }
   body { font-family: 'Nunito', sans-serif; background: var(--warm-white); color: var(--text-dark); line-height: 1.6; }
-
-  /* Icon Alignment helper */
-  .v-align { vertical-align: middle; }
 
   /* ── SECTION SWITCHING ── */
   .page-section { display: none !important; }
@@ -27,9 +34,9 @@
   .page-section.active { animation: fadeIn 0.3s ease; }
 
   /* NAV */
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,254,249,0.96); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(64,145,108,0.15); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.96); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(33,114,75,0.15); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 68px; }
   .nav-logo { display: flex; align-items: center; gap: 10px; font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 900; color: var(--green-dark); text-decoration: none; cursor: pointer; }
-  .nav-ball { width: 36px; height: 36px; background: var(--green-mid); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.3s; }
+  .nav-ball { width: 36px; height: 36px; background: var(--green-mid); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; transition: background 0.3s; }
   .nav-links { display: flex; align-items: center; gap: 0.15rem; list-style: none; }
   .nav-links a { text-decoration: none; color: var(--text-mid); font-weight: 700; font-size: 0.85rem; padding: 0.4rem 0.75rem; border-radius: 100px; transition: background 0.2s, color 0.2s; cursor: pointer; display: block; }
   .nav-links a:hover, .nav-links a.nav-active { background: var(--green-pale); color: var(--green-dark); }
@@ -40,7 +47,7 @@
   @media(max-width:800px) {
     .nav-links { display: none; }
     .hamburger { display: flex; }
-    nav.open .nav-links { display: flex; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--warm-white); padding: 1rem; border-bottom: 1px solid rgba(64,145,108,0.15); gap: 0.25rem; }
+    nav.open .nav-links { display: flex; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--warm-white); padding: 1rem; border-bottom: 1px solid rgba(33,114,75,0.15); gap: 0.25rem; }
   }
 
   /* ── HOME HERO ── */
@@ -95,17 +102,17 @@
   .mission-banner p { color: rgba(255,255,255,0.7); font-size: 0.88rem; font-weight: 600; margin-bottom: 0.4rem; }
   .mission-banner h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 900; color: var(--amber); line-height: 1.25; }
   .facts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .fact-card { background: white; border-radius: 16px; padding: 1.5rem; border: 1px solid rgba(64,145,108,0.1); }
+  .fact-card { background: white; border-radius: 16px; padding: 1.5rem; border: 1px solid rgba(33,114,75,0.1); }
   .fact-card h4 { font-size: 0.92rem; font-weight: 800; color: var(--text-dark); margin-bottom: 0.35rem; }
   .fact-card p { font-size: 0.82rem; color: var(--text-muted); font-weight: 600; line-height: 1.5; }
-  .fact-card .fact-icon { margin-bottom: 0.6rem; display: block; color: var(--green-mid); }
+  .fact-card .fact-icon { font-size: 1.3rem; margin-bottom: 0.6rem; display: block; }
 
   /* TEAM */
   #team { background: var(--warm-white); }
   .team-section-label { font-size: 0.95rem; font-weight: 900; color: var(--text-dark); margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--green-pale); }
   .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 1.25rem; margin-bottom: 3rem; }
-  .team-card { background: white; border-radius: 20px; overflow: hidden; border: 1px solid rgba(64,145,108,0.1); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
-  .team-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(45,106,79,0.1); }
+  .team-card { background: white; border-radius: 20px; overflow: hidden; border: 1px solid rgba(33,114,75,0.1); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
+  .team-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(22,74,49,0.1); }
   .team-photo { width: 100%; height: 300px; overflow: hidden; background: var(--green-pale); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .team-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
   .team-photo .initials { width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 900; color: white; }
@@ -113,9 +120,9 @@
   .team-card-body h3 { font-size: 1.05rem; font-weight: 800; color: var(--text-dark); margin-bottom: 0.15rem; }
   .team-role { font-size: 0.68rem; font-weight: 800; color: var(--amber); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.6rem; }
   .team-card-body p { font-size: 0.82rem; color: var(--text-muted); font-weight: 600; line-height: 1.55; }
-  .join-banner { background: white; border-radius: 20px; padding: 2.5rem; border: 1px solid rgba(64,145,108,0.1); text-align: center; }
+  .join-banner { background: white; border-radius: 20px; padding: 2.5rem; border: 1px solid rgba(33,114,75,0.1); text-align: center; }
   .join-banner h3 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 900; margin-bottom: 0.5rem; }
-  .join-banner p { color: var(--text-muted); font-weight: 600; font-size: 0.92rem; max-width: 500px; margin: 0 auto 1.5rem; }
+  .join-banner p { color: var(--text-muted); font-weight: 600; font-size: 0.92rem; max-width: px; margin: 0 auto 1.5rem; }
 
   /* REGISTER */
   #register { background: var(--cream); }
@@ -126,9 +133,9 @@
   .camps-divider .divider-badge { background: var(--green-pale); color: var(--green-mid); font-size: 0.7rem; font-weight: 800; padding: 0.2rem 0.75rem; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
   .camps-divider.past h3 { color: var(--text-muted); }
   .camps-divider.past .divider-badge { background: #f0f0f0; color: #999; }
-  .camp-card { background: white; border-radius: 20px; overflow: hidden; border: 1px solid rgba(64,145,108,0.1); margin-bottom: 1.25rem; display: flex; transition: transform 0.2s, box-shadow 0.2s; }
-  .camp-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(45,106,79,0.1); }
-  .camp-img { width: 220px; flex-shrink: 0; background: var(--green-mid); display: flex; align-items: center; justify-content: center; overflow: hidden; color: white; }
+  .camp-card { background: white; border-radius: 20px; overflow: hidden; border: 1px solid rgba(33,114,75,0.1); margin-bottom: 1.25rem; display: flex; transition: transform 0.2s, box-shadow 0.2s; }
+  .camp-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(22,74,49,0.1); }
+  .camp-img { width: 220px; flex-shrink: 0; background: var(--green-mid); display: flex; align-items: center; justify-content: center; font-size: 3.5rem; overflow: hidden; }
   .camp-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
   @media(max-width:600px) { .camp-card { flex-direction: column; } .camp-img { width: 100%; height: 150px; } }
   .camp-body { padding: 1.75rem; flex: 1; }
@@ -141,15 +148,13 @@
   .btn-camp.active { background: var(--green-mid); color: white; }
   .btn-camp.active:hover { background: var(--green-dark); transform: translateY(-2px); }
   .btn-camp.disabled { background: #e5e7eb; color: #9ca3af; cursor: not-allowed; }
-  
-  /* Past camp grid */
   .past-camps-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
-  .past-camp-card { background: white; border-radius: 16px; overflow: hidden; border: 1px solid rgba(64,145,108,0.08); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
-  .past-camp-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(45,106,79,0.12); }
+  .past-camp-card { background: white; border-radius: 16px; overflow: hidden; border: 1px solid rgba(33,114,75,0.08); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
+  .past-camp-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(22,74,49,0.12); }
   .past-camp-photo { width: 100%; height: 185px; overflow: hidden; background: #e8f4ec; display: flex; align-items: center; justify-content: center; position: relative; }
   .past-camp-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s; }
   .past-camp-card:hover .past-camp-photo img { transform: scale(1.05); }
-  .past-camp-photo::after { content: 'View Photos'; position: absolute; inset: 0; background: rgba(26,71,49,0.72); color: white; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.95rem; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.2s; }
+  .past-camp-photo::after { content: '📷 View Photos'; position: absolute; inset: 0; background: rgba(11,37,26,0.72); color: white; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.95rem; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.2s; }
   .past-camp-card:hover .past-camp-photo::after { opacity: 1; }
   .past-camp-photo .photo-placeholder { display: flex; flex-direction: column; align-items: center; gap: 6px; color: var(--text-muted); font-size: 0.78rem; font-weight: 700; }
   .past-camp-photo .photo-placeholder span { font-size: 2.2rem; }
@@ -158,14 +163,14 @@
   .past-camp-date { font-size: 0.78rem; color: var(--text-muted); font-weight: 700; margin-bottom: 0.5rem; }
   .past-camp-body p { font-size: 0.82rem; color: var(--text-muted); font-weight: 600; line-height: 1.5; margin-bottom: 0.5rem; }
   .past-badge { display: inline-block; background: #f3f4f6; color: #9ca3af; font-size: 0.68rem; font-weight: 800; padding: 0.15rem 0.6rem; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.5rem; }
-  .view-photos-hint { font-size: 0.78rem; font-weight: 800; color: var(--green-mid); display: flex; align-items: center; gap: 4px; }
+  .view-photos-hint { font-size: 0.78rem; font-weight: 800; color: var(--green-mid); }
 
   /* DONATIONS */
   #donations { background: var(--green-dark); position: relative; overflow: hidden; }
-  #donations::before { content:''; position:absolute; width:500px; height:500px; background:var(--green-mid); border-radius:50%; top:-200px; right:-150px; opacity:0.25; pointer-events:none; }
+  #donations::before { content:''; position:absolute; width:px; height:px; background:var(--green-mid); border-radius:50%; top:-200px; right:-150px; opacity:0.25; pointer-events:none; }
   .donate-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
   @media(max-width:760px) { .donate-inner { grid-template-columns: 1fr; } }
-  .donate-tag { display: inline-block; background: rgba(244,132,95,0.2); color: #f4a07a; padding: 0.3rem 1rem; border-radius: 100px; font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1rem; border: 1px solid rgba(244,132,95,0.3); }
+  .donate-tag { display: inline-block; background: rgba(254,107,53,0.2); color: #ff9166; padding: 0.3rem 1rem; border-radius: 100px; font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1rem; border: 1px solid rgba(254,107,53,0.3); }
   .donate-title { font-family: 'Fraunces', serif; font-size: clamp(1.8rem,3.5vw,2.4rem); font-weight: 900; color: white; line-height: 1.15; margin-bottom: 1rem; }
   .donate-desc { color: rgba(255,255,255,0.78); font-weight: 600; font-size: 0.92rem; margin-bottom: 1.5rem; }
   .impact-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem; }
@@ -175,10 +180,10 @@
   .donate-card h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 900; color: var(--text-dark); margin-bottom: 0.4rem; }
   .donate-card > p { color: var(--text-muted); font-size: 0.88rem; font-weight: 600; margin-bottom: 1.25rem; }
   .amount-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; margin-bottom: 0.75rem; }
-  .amount-btn { padding: 0.7rem; border-radius: 12px; border: 2px solid rgba(64,145,108,0.2); background: var(--cream); font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 800; color: var(--text-mid); cursor: pointer; transition: all 0.15s; }
+  .amount-btn { padding: 0.7rem; border-radius: 12px; border: 2px solid rgba(33,114,75,0.2); background: var(--cream); font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 800; color: var(--text-mid); cursor: pointer; transition: all 0.15s; }
   .amount-btn:hover, .amount-btn.active { border-color: var(--green-mid); background: var(--green-pale); color: var(--green-dark); }
   .custom-input-wrap { position: relative; margin-bottom: 1rem; }
-  .custom-input-wrap input { width: 100%; padding: 0.65rem 1rem 0.65rem 1.75rem; border-radius: 12px; border: 2px solid rgba(64,145,108,0.2); font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 700; color: var(--text-dark); background: var(--cream); outline: none; transition: border-color 0.15s; }
+  .custom-input-wrap input { width: 100%; padding: 0.65rem 1rem 0.65rem 1.75rem; border-radius: 12px; border: 2px solid rgba(33,114,75,0.2); font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 700; color: var(--text-dark); background: var(--cream); outline: none; transition: border-color 0.15s; }
   .custom-input-wrap input:focus { border-color: var(--green-mid); }
   .dollar-sign { position: absolute; left: 0.75rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-weight: 700; }
   .btn-donate { width: 100%; padding: 0.85rem; border-radius: 100px; border: none; background: var(--orange); color: white; font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 800; cursor: pointer; transition: background 0.15s, transform 0.15s; }
@@ -201,15 +206,15 @@
   @media(max-width:760px) { .contact-grid { grid-template-columns: 1fr; } }
   .contact-info h3 { font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 900; margin-bottom: 0.75rem; }
   .contact-info > p { color: var(--text-muted); font-weight: 600; font-size: 0.92rem; margin-bottom: 1.5rem; }
-  .contact-detail { display: flex; align-items: center; gap: 0.75rem; padding: 0.85rem 1rem; background: white; border-radius: 12px; border: 1px solid rgba(64,145,108,0.1); margin-bottom: 0.75rem; text-decoration: none; color: var(--text-dark); font-weight: 700; font-size: 0.88rem; transition: border-color 0.15s; }
+  .contact-detail { display: flex; align-items: center; gap: 0.75rem; padding: 0.85rem 1rem; background: white; border-radius: 12px; border: 1px solid rgba(33,114,75,0.1); margin-bottom: 0.75rem; text-decoration: none; color: var(--text-dark); font-weight: 700; font-size: 0.88rem; transition: border-color 0.15s; }
   .contact-detail:hover { border-color: var(--green-mid); }
   .contact-icon { width: 36px; height: 36px; background: var(--green-pale); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .contact-form { background: white; border-radius: 24px; padding: 2rem; border: 1px solid rgba(64,145,108,0.1); }
+  .contact-form { background: white; border-radius: 24px; padding: 2rem; border: 1px solid rgba(33,114,75,0.1); }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
   @media(max-width:480px) { .form-row { grid-template-columns: 1fr; } }
   .form-group { margin-bottom: 1rem; }
   .form-group label { display: block; font-size: 0.78rem; font-weight: 800; color: var(--text-mid); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.04em; }
-  .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 0.65rem 0.9rem; border: 1.5px solid rgba(64,145,108,0.2); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--text-dark); background: var(--cream); outline: none; transition: border-color 0.15s; resize: vertical; }
+  .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 0.65rem 0.9rem; border: 1.5px solid rgba(33,114,75,0.2); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--text-dark); background: var(--cream); outline: none; transition: border-color 0.15s; resize: vertical; }
   .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--green-mid); background: white; }
   .btn-submit { width: 100%; padding: 0.85rem; border-radius: 100px; border: none; background: var(--green-mid); color: white; font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 800; cursor: pointer; transition: background 0.15s, transform 0.15s; }
   .btn-submit:hover { background: var(--green-dark); transform: translateY(-2px); }
@@ -227,12 +232,12 @@
   .footer-bottom { max-width: 1100px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.25rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; font-size: 0.78rem; color: rgba(255,255,255,0.3); font-weight: 600; }
 
   /* ── PHOTO GALLERY MODAL ── */
-  .gallery-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.88); z-index: 500; display: none; align-items: center; justify-content: center; padding: 1rem; }
+  .gallery-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.88); z-index: ; display: none; align-items: center; justify-content: center; padding: 1rem; }
   .gallery-overlay.open { display: flex !important; }
   .gallery-modal { background: white; border-radius: 24px; width: 100%; max-width: 900px; max-height: 90vh; overflow-y: auto; animation: slideUp 0.3s ease; }
   @keyframes slideUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-  .gallery-header { padding: 1.75rem 2rem 1.25rem; border-bottom: 1px solid rgba(64,145,108,0.1); display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; position: sticky; top: 0; background: white; border-radius: 24px 24px 0 0; z-index: 1; }
-  .gallery-header-text h2 { font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 900; color: var(--text-dark); margin-bottom: 0.2 irem; }
+  .gallery-header { padding: 1.75rem 2rem 1.25rem; border-bottom: 1px solid rgba(33,114,75,0.1); display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; position: sticky; top: 0; background: white; border-radius: 24px 24px 0 0; z-index: 1; }
+  .gallery-header-text h2 { font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 900; color: var(--text-dark); margin-bottom: 0.2rem; }
   .gallery-header-text p { font-size: 0.83rem; color: var(--text-muted); font-weight: 600; }
   .gallery-close { width: 36px; height: 36px; border-radius: 50%; border: none; background: var(--cream); cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.15s; }
   .gallery-close:hover { background: var(--green-pale); }
@@ -244,7 +249,7 @@
   .gallery-thumb::after { content: '🔍'; position: absolute; inset: 0; background: rgba(0,0,0,0.38); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; opacity: 0; transition: opacity 0.2s; }
   .gallery-thumb:hover::after { opacity: 1; }
   .gallery-empty { text-align: center; padding: 3rem 1rem; }
-  .gallery-empty .empty-icon { margin-bottom: 0.75rem; color: var(--text-muted); }
+  .gallery-empty .empty-icon { font-size: 3rem; margin-bottom: 0.75rem; }
   .gallery-empty h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 900; color: var(--text-dark); margin-bottom: 0.5rem; }
   .gallery-empty p { font-size: 0.88rem; font-weight: 600; color: var(--text-muted); max-width: 360px; margin: 0 auto; }
   .gallery-empty code { background: var(--cream); padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.82rem; color: var(--green-mid); }
@@ -256,20 +261,6 @@
   .lightbox-close { position: absolute; top: 1rem; right: 1rem; width: 40px; height: 40px; border-radius: 50%; border: none; background: rgba(255,255,255,0.15); color: white; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s; }
   .lightbox-close:hover { background: rgba(255,255,255,0.28); }
 
-  /* ── COLOR THEME SWITCHER ── */
-  .theme-switcher { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 400; display: flex; flex-direction: column; align-items: flex-end; gap: 0.6rem; }
-  .theme-toggle { width: 46px; height: 46px; border-radius: 50%; border: none; background: var(--green-mid); color: white; font-size: 1.2rem; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.25); transition: transform 0.15s, background 0.3s; display: flex; align-items: center; justify-content: center; }
-  .theme-toggle:hover { transform: scale(1.08); }
-  .theme-picker { background: white; border-radius: 16px; padding: 1rem 1.1rem; box-shadow: 0 8px 32px rgba(0,0,0,0.18); display: none; min-width: 160px; }
-  .theme-picker.open { display: block; }
-  .theme-picker-label { font-size: 0.72rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.75rem; }
-  .theme-options { display: flex; flex-direction: column; gap: 0.5rem; }
-  .theme-option { display: flex; align-items: center; gap: 0.65rem; cursor: pointer; padding: 0.35rem 0.5rem; border-radius: 8px; transition: background 0.15s; border: none; background: none; width: 100%; text-align: left; font-family: 'Nunito', sans-serif; }
-  .theme-option:hover { background: var(--cream); }
-  .theme-option.active { background: var(--green-pale); }
-  .theme-dot-preview { width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0; border: 2px solid rgba(0,0,0,0.1); }
-  .theme-option-name { font-size: 0.82rem; font-weight: 700; color: var(--text-dark); }
-
   /* TOAST */
   .toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--green-dark); color: white; padding: 0.85rem 1.75rem; border-radius: 100px; font-weight: 700; font-size: 0.9rem; z-index: 700; opacity: 0; transition: all 0.3s ease; white-space: nowrap; box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
@@ -279,7 +270,7 @@
 
 <nav id="navbar">
   <a class="nav-logo" onclick="showSection('home')">
-    <div class="nav-ball" id="navBall"></div>
+    <div class="nav-ball" id="navBall">⚽</div>
     Soccer for Change
   </a>
   <ul class="nav-links" id="navLinks">
@@ -301,7 +292,7 @@
   <div class="blob blob-2"></div>
   <div class="hero-grid">
     <div>
-      <div class="hero-badge">Bellevue, WA &nbsp;·&nbsp; Grant-funded 501(c)(3) Nonprofit</div>
+      <div class="hero-badge">⚽ Bellevue, WA &nbsp;·&nbsp; Grant-funded 501(c)(3) Nonprofit</div>
       <h1 class="hero-title">Empowering youth<br>through <em>soccer</em></h1>
       <p class="hero-desc">A nonprofit organization providing free soccer camps that foster teamwork, mentorship, and personal growth for kids across the Bellevue area.</p>
       <div class="hero-btns">
@@ -312,7 +303,7 @@
     <div class="hero-visual">
       <div class="hero-card">
         <svg viewBox="0 0 340 200" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;border-radius:14px;margin-bottom:1.25rem;">
-          <rect width="340" height="200" fill="#40916c" rx="14"/>
+          <rect width="340" height="200" fill="#21724b" rx="14"/>
           <rect x="0" y="0" width="42" height="200" fill="rgba(255,255,255,0.04)"/>
           <rect x="85" y="0" width="42" height="200" fill="rgba(255,255,255,0.04)"/>
           <rect x="170" y="0" width="42" height="200" fill="rgba(255,255,255,0.04)"/>
@@ -324,12 +315,12 @@
           <rect x="280" y="55" width="60" height="90" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" fill="none"/>
           <rect x="315" y="75" width="25" height="50" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" fill="none"/>
           <circle cx="170" cy="100" r="10" fill="white" opacity="0.9"/>
-          <path d="M170 90 L165 97 L170 104 L175 97 Z" fill="#2d6a4f" opacity="0.6"/>
+          <path d="M170 90 L165 97 L170 104 L175 97 Z" fill="#164a31" opacity="0.6"/>
         </svg>
         <div class="stat-row">
-          <div class="stat-box"><span class="stat-num">500+</span><span class="stat-label">Kids Served</span></div>
+          <div class="stat-box"><span class="stat-num">60+</span><span class="stat-label">Kids Served</span></div>
           <div class="stat-box"><span class="stat-num">$0</span><span class="stat-label">Cost to Join</span></div>
-          <div class="stat-box"><span class="stat-num">6</span><span class="stat-label">Coaches</span></div>
+          <div class="stat-box"><span class="stat-num">10</span><span class="stat-label">Coaches</span></div>
         </div>
       </div>
     </div>
@@ -358,22 +349,22 @@
       <div>
         <div class="facts-grid">
           <div class="fact-card">
-            <span class="material-symbols-outlined fact-icon">verified</span>
+            <span class="fact-icon">🏅</span>
             <h4>501(c)(3) Certified</h4>
             <p>All donations are tax-deductible. EIN: 99-0417811</p>
           </div>
           <div class="fact-card">
-            <span class="material-symbols-outlined fact-icon">payments</span>
+            <span class="fact-icon">💰</span>
             <h4>Grant Funded</h4>
             <p>Supported by the City of Bellevue, Thunderbird Foundation &amp; Google Ad Grants.</p>
           </div>
           <div class="fact-card">
-            <span class="material-symbols-outlined fact-icon">school</span>
+            <span class="fact-icon">🎓</span>
             <h4>High School Mentors</h4>
             <p>Coaches are current HS athletes who know the youth player journey firsthand.</p>
           </div>
           <div class="fact-card">
-            <span class="material-symbols-outlined fact-icon">public</span>
+            <span class="fact-icon">🌍</span>
             <h4>Free for All</h4>
             <p>No fees, no barriers. Every camp is completely free for all participants.</p>
           </div>
@@ -392,7 +383,7 @@
     <p class="team-section-label">Our Team</p>
     <div class="team-grid">
       <div class="team-card">
-        <div class="team-photo" style="background:#d8f3dc;"><img src="images/liam.jpg" alt="Liam Ko" /></div>
+        <div class="team-photo"><img src="images/liam.jpg" alt="Liam Ko" /></div>
         <div class="team-card-body">
           <h3>Liam Ko</h3>
           <div class="team-role">Fundraising Coordinator</div>
@@ -400,7 +391,7 @@
         </div>
       </div>
       <div class="team-card">
-        <div class="team-photo" style="background:#dbeafe;"><img src="images/drew.jpg" alt="Drew Peach" /></div>
+        <div class="team-photo"><img src="images/drew.jpg" alt="Drew Peach" /></div>
         <div class="team-card-body">
           <h3>Drew Peach</h3>
           <div class="team-role">Outreach Director &amp; Head Coach</div>
@@ -408,7 +399,7 @@
         </div>
       </div>
       <div class="team-card">
-        <div class="team-photo" style="background:#fef3c7;"><img src="images/annatje.jpg" alt="Annatje Van Der Bogert" /></div>
+        <div class="team-photo"><img src="images/annatje.jpg" alt="Annatje Van Der Bogert" /></div>
         <div class="team-card-body">
           <h3>Annatje Van Der Bogert</h3>
           <div class="team-role">Media Lead</div>
@@ -416,7 +407,7 @@
         </div>
       </div>
       <div class="team-card">
-        <div class="team-photo" style="background:#fce7f3;"><img src="images/atharva.jpg" alt="Atharva Patil" /></div>
+        <div class="team-photo"><img src="images/atharva.jpg" alt="Atharva Patil" /></div>
         <div class="team-card-body">
           <h3>Atharva Patil</h3>
           <div class="team-role">Software Lead &amp; Head Coach</div>
@@ -428,7 +419,7 @@
     <p class="team-section-label">Co-Founders</p>
     <div class="team-grid">
       <div class="team-card">
-        <div class="team-photo" style="background:#d8f3dc;"><img src="images/vedanth.jpg" alt="Vedanth Rao" /></div>
+        <div class="team-photo"><img src="images/vedanth.jpg" alt="Vedanth Rao" /></div>
         <div class="team-card-body">
           <h3>Vedanth Rao</h3>
           <div class="team-role">Co-Founder</div>
@@ -436,7 +427,7 @@
         </div>
       </div>
       <div class="team-card">
-        <div class="team-photo" style="background:#fde8df;"><img src="images/adel.jpg" alt="Adel Dekhani" /></div>
+        <div class="team-photo"><img src="images/adel.jpg" alt="Adel Dekhani" /></div>
         <div class="team-card-body">
           <h3>Adel Dekhani</h3>
           <div class="team-role">Co-Founder</div>
@@ -466,17 +457,15 @@
     </div>
 
     <div class="camp-card">
-      <div class="camp-img">
-        <span class="material-symbols-outlined" style="font-size: 3.5rem;">sports_soccer</span>
-      </div>
+      <div class="camp-img">⚽</div>
       <div class="camp-body">
         <h3>Summer 2026 Camp — Interest Form</h3>
         <p>While we haven't finalized specific dates yet due to logistics and fundraising, fill out this form so we can gauge interest and set dates when people are most available. Open to all skill levels — whether your child wants to sharpen skills with position-specific training or just have fun and learn the game, there's a place for everyone.</p>
         <div class="camp-meta">
-          <div class="camp-meta-row">Dates: <span>June / July / August 2026</span></div>
-          <div class="camp-meta-row">Location: <span>TBD — Field in Bellevue</span></div>
-          <div class="camp-meta-row">Cost: <span>Free for all participants</span></div>
-          <div class="camp-meta-row">Ages: <span>7–12</span></div>
+          <div class="camp-meta-row">📅 Dates: <span>June / July / August 2026</span></div>
+          <div class="camp-meta-row">📍 Location: <span>TBD — Field in Bellevue</span></div>
+          <div class="camp-meta-row">💰 Cost: <span>Free for all participants</span></div>
+          <div class="camp-meta-row">👦 Ages: <span>7–12</span></div>
         </div>
         <a href="https://forms.gle/eQQjwe22mpJA8heg9" target="_blank" rel="noopener noreferrer" class="btn-camp active">Fill Out Interest Form →</a>
       </div>
@@ -498,9 +487,7 @@
           <h4>Mid-Winter Break Camp 2026</h4>
           <div class="past-camp-date">February 16–20, 2026 · 9–11 AM</div>
           <p>Small-group drills and competitive games for kids ages 7–12. Held at Enatai Elementary, Bellevue.</p>
-          <div class="view-photos-hint">
-            <span class="material-symbols-outlined v-align" style="font-size: 1.1rem;">photo_camera</span> View photos
-          </div>
+          <div class="view-photos-hint">📷 Click to view photos</div>
         </div>
       </div>
 
@@ -513,9 +500,7 @@
           <h4>Fall 2025 Training Camp</h4>
           <div class="past-camp-date">October 4–25, 2025 · Saturdays 3–5 PM</div>
           <p>Free soccer training camp open to all skill levels. Players grouped by ability and coached by top-tier high school athletes.</p>
-          <div class="view-photos-hint">
-            <span class="material-symbols-outlined v-align" style="font-size: 1.1rem;">photo_camera</span> View photos
-          </div>
+          <div class="view-photos-hint">📷 Click to view photos</div>
         </div>
       </div>
 
@@ -528,9 +513,7 @@
           <h4>Summer 2025 Camp</h4>
           <div class="past-camp-date">August 2025</div>
           <p>Our summer camp from last year. A great time with lots of fun drills, games, and new friendships made on the field.</p>
-          <div class="view-photos-hint">
-            <span class="material-symbols-outlined v-align" style="font-size: 1.1rem;">photo_camera</span> View photos
-          </div>
+          <div class="view-photos-hint">📷 Click to view photos</div>
         </div>
       </div>
     </div>
@@ -538,4 +521,299 @@
 </section>
 
 <section id="donations" class="page-section">
-  <div class="section-inner
+  <div class="section-inner">
+    <div class="donate-inner">
+      <div>
+        <span class="donate-tag">Support Our Mission</span>
+        <h2 class="donate-title">Thank you to all our donors!</h2>
+        <p class="donate-desc">Your generous support helps us continue these camps and give back to the community. We also accept employer donation matching.</p>
+        <ul class="impact-list">
+          <li><span class="impact-dot"></span> $25 provides a soccer ball for one camper</li>
+          <li><span class="impact-dot"></span> $50 covers one child's full camp season</li>
+          <li><span class="impact-dot"></span> $100 funds coaching for an entire week</li>
+          <li><span class="impact-dot"></span> $250 sponsors a full session for 5 kids</li>
+        </ul>
+      </div>
+      <div>
+        <div class="donate-card">
+          <h3>Make a donation</h3>
+          <p>Every dollar stays local and goes directly to the kids.</p>
+          <div class="amount-grid">
+            <button class="amount-btn active" onclick="selectAmount(this,25)">$25</button>
+            <button class="amount-btn" onclick="selectAmount(this,50)">$50</button>
+            <button class="amount-btn" onclick="selectAmount(this,100)">$100</button>
+            <button class="amount-btn" onclick="selectAmount(this,250)">$250</button>
+          </div>
+          <div class="custom-input-wrap">
+            <span class="dollar-sign">$</span>
+            <input type="number" id="customAmount" placeholder="Custom amount" min="1" oninput="clearSelection()"/>
+          </div>
+          <button class="btn-donate" onclick="handleDonate()">Donate via GiveButter ❤️</button>
+          <div class="donate-alt">
+            <p>Prefer to mail a check?</p>
+            <address>Soccer for Change · 10510 NE 24th St, Bellevue, WA 98004</address>
+            <p style="margin-top:0.5rem;font-size:0.78rem;">EIN: 99-0417811 · Tax-deductible 501(c)(3)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="grants-section">
+      <h3 class="grants-title">Our Grants</h3>
+      <p class="grants-subtitle">We are deeply grateful to the organizations that make our camps possible through their generous support.</p>
+      <div class="grants-grid">
+        <div class="grant-card"><h4>Thunderbird Foundation Grant</h4><span class="grant-amount">$500</span><p>Supporting community soccer coaching programs.</p></div>
+        <div class="grant-card"><h4>City of Bellevue Community Programming Fund</h4><span class="grant-amount">$1,000</span><p>Helping expand equal-access soccer opportunities.</p></div>
+        <div class="grant-card"><h4>Google Ad Grants</h4><span class="grant-amount">$13,000</span><p>Advertising support to expand our nonprofit mission.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="page-section">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <span class="section-tag">Get In Touch</span>
+        <h3>We'd love to hear from you</h3>
+        <p>Questions about registration, volunteering, or partnering with us?</p>
+        <a class="contact-detail" href="mailto:contact@soccerforchange.org"><div class="contact-icon">✉️</div>contact@soccerforchange.org</a>
+        <a class="contact-detail" href="tel:+14255311772"><div class="contact-icon">📞</div>(425)-531-1772</a>
+        <div class="contact-detail"><div class="contact-icon">📍</div>Bellevue, Washington</div>
+      </div>
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input type="text" placeholder="Jane" id="firstName"/></div>
+          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith" id="lastName"/></div>
+        </div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="jane@email.com" id="email"/></div>
+        <div class="form-group">
+          <label>I'm interested in...</label>
+          <select id="interest">
+            <option value="">Select a topic</option>
+            <option>Registering my child for a camp</option>
+            <option>Volunteering as a coach</option>
+            <option>Corporate / community partnership</option>
+            <option>Donating equipment or funds</option>
+            <option>General inquiry</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Message</label><textarea rows="4" placeholder="Tell us a bit about yourself or your question..." id="message"></textarea></div>
+        <button class="btn-submit" onclick="handleContact()">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">⚽ Soccer for Change</div>
+      <div class="footer-tagline">Empowering Bellevue youth through soccer</div>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:contact@soccerforchange.org">contact@soccerforchange.org</a>
+      <a href="tel:+14255311772">(425)-531-1772</a>
+      <p>10510 NE 24th St, Bellevue, WA 98004</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <a onclick="showSection('about')">About</a>
+      <a onclick="showSection('team')">Our Team</a>
+      <a onclick="showSection('register')">Register</a>
+      <a onclick="showSection('donations')">Donations</a>
+      <a onclick="showSection('contact')">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Soccer for Change · 501(c)(3) Nonprofit · EIN: 99-0417811 · All rights reserved</span>
+    <a href="mailto:contact@soccerforchange.org" style="color:rgba(255,255,255,0.3);text-decoration:none;">Privacy: contact@soccerforchange.org</a>
+  </div>
+</footer>
+
+<div class="gallery-overlay" id="galleryOverlay" onclick="handleOverlayClick(event)">
+  <div class="gallery-modal" id="galleryModal">
+    <div class="gallery-header">
+      <div class="gallery-header-text">
+        <h2 id="galleryTitle">Camp Photos</h2>
+        <p id="galleryDate"></p>
+      </div>
+      <button class="gallery-close" onclick="closeGallery()">✕</button>
+    </div>
+    <div class="gallery-body">
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+  </div>
+</div>
+
+<div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightboxImg" src="" alt="Camp photo" onclick="event.stopPropagation()" />
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  // ══════════════════════════════════════════
+  // SECTION NAVIGATION
+  // ══════════════════════════════════════════
+  function showSection(id) {
+    document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    document.querySelectorAll('.nav-links a[data-section]').forEach(a => {
+      a.classList.toggle('nav-active', a.dataset.section === id);
+    });
+    document.getElementById('navbar').classList.remove('open');
+  }
+
+  // ══════════════════════════════════════════
+  // PHOTO GALLERY
+  // To add more photos to a camp:
+  // Add the filename string path into the photos array below.
+  // ══════════════════════════════════════════
+  const campGalleries = {
+    midwinter2026: {
+      title: 'Mid-Winter Break Camp 2026',
+      date: 'February 16–20, 2026  ·  9–11 AM  ·  Enatai Elementary',
+      photos: [
+        'images/midwinter2026.jpg',
+      ]
+    },
+    fall2025: {
+      title: 'Fall 2025 Training Camp',
+      date: 'October 4–25, 2025  ·  Saturdays 3–5 PM  ·  Enatai Elementary',
+      photos: [
+        'images/fall2025.jpg',
+      ]
+    },
+    summer2025: {
+      title: 'Summer 2025 Camp',
+      date: 'August 2025',
+      photos: [
+        'images/summer2025.jpg',
+      ]
+    }
+  };
+
+  function openGallery(campId) {
+    const camp = campGalleries[campId];
+    if (!camp) return;
+    document.getElementById('galleryTitle').textContent = camp.title;
+    document.getElementById('galleryDate').textContent = camp.date;
+    const grid = document.getElementById('galleryGrid');
+    grid.innerHTML = '';
+    const validPhotos = camp.photos.filter(Boolean);
+    if (validPhotos.length === 0) {
+      grid.innerHTML = `<div class="gallery-empty" style="grid-column:1/-1">
+        <div class="empty-icon">📷</div>
+        <h3>Photos coming soon!</h3>
+        <p>To add photos, upload images to your GitHub <code>images/</code> folder and add the filenames to the <code>campGalleries</code> array in the script.</p>
+      </div>`;
+    } else {
+      validPhotos.forEach(src => {
+        const thumb = document.createElement('div');
+        thumb.className = 'gallery-thumb';
+        thumb.onclick = () => openLightbox(src);
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = camp.title;
+        img.onerror = () => thumb.remove();
+        thumb.appendChild(img);
+        grid.appendChild(thumb);
+      });
+    }
+    document.getElementById('galleryOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeGallery() {
+    document.getElementById('galleryOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('galleryOverlay')) closeGallery();
+  }
+
+  function openLightbox(src) {
+    document.getElementById('lightboxImg').src = src;
+    document.getElementById('lightboxOverlay').classList.add('open');
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightboxOverlay').classList.remove('open');
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { closeGallery(); closeLightbox(); }
+  });
+
+  // ══════════════════════════════════════════
+  // DONATIONS
+  // ══════════════════════════════════════════
+  let selectedAmount = 25;
+  function selectAmount(btn, amount) {
+    document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    selectedAmount = amount;
+    document.getElementById('customAmount').value = '';
+  }
+  function clearSelection() {
+    document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+    selectedAmount = null;
+  }
+  function handleDonate() {
+    const custom = document.getElementById('customAmount').value;
+    const amount = custom ? parseFloat(custom) : selectedAmount;
+    if (!amount || amount <= 0) { showToast('Please select or enter a donation amount.'); return; }
+    window.open('https://givebutter.com/soccerforchange', '_blank', 'noopener,noreferrer');
+  }
+
+  // ══════════════════════════════════════════
+  // CONTACT FORM
+  // ══════════════════════════════════════════
+  async function handleContact() {
+    const name = document.getElementById('firstName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    if (!name || !email) { showToast('Please fill in your name and email.'); return; }
+    const data = {
+      name: name + ' ' + document.getElementById('lastName').value.trim(),
+      email,
+      topic: document.getElementById('interest').value,
+      message: document.getElementById('message').value
+    };
+    try {
+      const response = await fetch('https://formspree.io/f/xeedlrzn', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (response.ok) {
+        showToast("Message sent! We'll be in touch soon. ⚽");
+        ['firstName','lastName','email','message'].forEach(id => document.getElementById(id).value = '');
+        document.getElementById('interest').value = '';
+      } else {
+        showToast('Something went wrong — please email us directly.');
+      }
+    } catch {
+      showToast('Something went wrong — please email us directly.');
+    }
+  }
+
+  // ══════════════════════════════════════════
+  // TOAST & HAMBURGER
+  // ══════════════════════════════════════════
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3500);
+  }
+
+  document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('navbar').classList.toggle('open');
+  });
+</script>
+</body>
+</html>
