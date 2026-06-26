@@ -55,20 +55,13 @@
   #home {
     min-height: 100vh;
     padding-top: 68px;
-    background-image: none;
-    background-color: var(--green-mid);
-    background: linear-gradient(155deg, var(--green-dark) 0%, var(--green-mid) 60%, var(--green-light) 100%);
+    background: var(--green-dark);
     align-items: center;
     position: relative;
     overflow: hidden;
   }
-  .blob { position: absolute; border-radius: 50%; opacity: 0.08; background: white; pointer-events: none; }
-  .blob-1 { width: 500px; height: 500px; top: -120px; right: -100px; }
-  .blob-2 { width: 300px; height: 300px; bottom: 30px; left: -100px; }
   .hero-grid { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem 4rem; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 3rem; width: 100%; }
   @media(max-width:760px) { .hero-grid { grid-template-columns: 1fr; } .hero-visual { display: none; } }
-  .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.92); padding: 0.35rem 1rem; border-radius: 100px; font-size: 0.85rem; font-weight: 700; margin-bottom: 1.5rem; border: 1px solid rgba(255,255,255,0.25); }
-  .hero-badge svg { display: inline-block; flex-shrink: 0; }
   .hero-title { font-family: 'Fraunces', serif; font-size: clamp(2.4rem,5vw,3.8rem); font-weight: 900; color: white; line-height: 1.1; margin-bottom: 1.25rem; }
   .hero-title em { font-style: italic; color: #a8e6c3; }
   .hero-desc { color: rgba(255,255,255,0.85); font-size: 1.05rem; font-weight: 600; margin-bottom: 2rem; max-width: 480px; }
@@ -79,19 +72,17 @@
   .btn-primary:hover { background: var(--orange-dark); }
   .btn-secondary { background: rgba(255,255,255,0.15); color: white; border: 2px solid rgba(255,255,255,0.4); }
   .btn-secondary:hover { background: rgba(255,255,255,0.25); }
-  .hero-card { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 24px; padding: 2rem; backdrop-filter: blur(8px); }
+  .hero-card { background: var(--green-mid); border-radius: 20px; padding: 2rem; }
   .stat-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem; }
-  .stat-box { background: rgba(255,255,255,0.12); border-radius: 12px; padding: 0.85rem; text-align: center; }
+  .stat-box { background: var(--green-dark); border-radius: 10px; padding: 0.85rem; text-align: center; }
   .stat-num { font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 900; color: white; display: block; }
   .stat-label { font-size: 0.7rem; color: rgba(255,255,255,0.72); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
 
   /* ── GENERAL SECTIONS ── */
   .page-section:not(#home) { padding-top: calc(68px + 3.5rem); padding-bottom: 4rem; padding-left: 2rem; padding-right: 2rem; min-height: 100vh; }
   .section-inner { max-width: 1100px; margin: 0 auto; }
-  .section-tag { display: inline-block; background: var(--green-pale); color: var(--green-mid); padding: 0.3rem 1rem; border-radius: 100px; font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1rem; }
-  .section-tag.orange { background: var(--orange-light); color: var(--orange-dark); }
-  .section-title { font-family: 'Fraunces', serif; font-size: clamp(1.9rem,4vw,2.7rem); font-weight: 900; color: var(--text-dark); line-height: 1.15; margin-bottom: 0.75rem; }
-  .section-desc { color: var(--text-muted); font-size: 0.95rem; font-weight: 600; max-width: 540px; margin-bottom: 2.5rem; }
+  .section-title { font-family: 'Fraunces', serif; font-size: clamp(1.9rem,4vw,2.7rem); font-weight: 900; color: var(--text-dark); line-height: 1.15; margin-bottom: 0.85rem; }
+  .section-desc { color: var(--text-muted); font-size: 0.95rem; font-weight: 600; max-width: 540px; margin-bottom: 3rem; }
 
   /* ABOUT */
   #about { background: var(--cream); }
@@ -113,8 +104,8 @@
   #team { background: var(--warm-white); }
   .team-section-label { font-size: 0.95rem; font-weight: 900; color: var(--text-dark); margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--green-pale); }
   .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 1.25rem; margin-bottom: 3rem; }
-  .team-card { background: white; border-radius: 20px; overflow: hidden; border: 1px solid rgba(33,114,75,0.1); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
-  .team-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(22,74,49,0.1); }
+  .team-card { background: white; border-radius: 20px; overflow: hidden; border: 1px solid rgba(33,114,75,0.1); transition: border-color 0.2s; display: flex; flex-direction: column; }
+  .team-card:hover { border-color: rgba(33,114,75,0.3); }
   .team-photo { width: 100%; height: 300px; overflow: hidden; background: var(--green-pale); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .team-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
   .team-photo .initials { width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 900; color: white; }
@@ -135,8 +126,8 @@
   .camps-divider .divider-badge { background: var(--green-pale); color: var(--green-mid); font-size: 0.7rem; font-weight: 800; padding: 0.2rem 0.75rem; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
   .camps-divider.past h3 { color: var(--text-muted); }
   .camps-divider.past .divider-badge { background: #f0f0f0; color: #999; }
-  .camp-card { background: white; border-radius: 20px; overflow: hidden; border: 1px solid rgba(33,114,75,0.1); margin-bottom: 1.25rem; display: flex; transition: transform 0.2s, box-shadow 0.2s; }
-  .camp-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(22,74,49,0.1); }
+  .camp-card { background: white; border-radius: 20px; overflow: hidden; border: 1px solid rgba(33,114,75,0.1); margin-bottom: 1.25rem; display: flex; transition: border-color 0.2s; }
+  .camp-card:hover { border-color: rgba(33,114,75,0.3); }
   .camp-img { width: 220px; flex-shrink: 0; background: var(--green-mid); display: flex; align-items: center; justify-content: center; overflow: hidden; }
   .camp-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
   @media(max-width:600px) { .camp-card { flex-direction: column; } .camp-img { width: 100%; height: 150px; } }
@@ -151,8 +142,8 @@
   .btn-camp.active:hover { background: var(--green-dark); transform: translateY(-2px); }
   .btn-camp.disabled { background: #e5e7eb; color: #9ca3af; cursor: not-allowed; }
   .past-camps-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
-  .past-camp-card { background: white; border-radius: 16px; overflow: hidden; border: 1px solid rgba(33,114,75,0.08); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
-  .past-camp-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(22,74,49,0.12); }
+  .past-camp-card { background: white; border-radius: 16px; overflow: hidden; border: 1px solid rgba(33,114,75,0.08); transition: border-color 0.2s; cursor: pointer; }
+  .past-camp-card:hover { border-color: rgba(33,114,75,0.3); }
   .past-camp-photo { width: 100%; height: 185px; overflow: hidden; background: #e8f4ec; display: flex; align-items: center; justify-content: center; position: relative; }
   .past-camp-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s; }
   .past-camp-card:hover .past-camp-photo img { transform: scale(1.05); }
@@ -172,7 +163,6 @@
   #donations::before { content:''; position:absolute; width:400px; height:400px; background:var(--green-mid); border-radius:50%; top:-200px; right:-150px; opacity:0.25; pointer-events:none; }
   .donate-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
   @media(max-width:760px) { .donate-inner { grid-template-columns: 1fr; } }
-  .donate-tag { display: inline-block; background: rgba(254,107,53,0.2); color: #ff9166; padding: 0.3rem 1rem; border-radius: 100px; font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1rem; border: 1px solid rgba(254,107,53,0.3); }
   .donate-title { font-family: 'Fraunces', serif; font-size: clamp(1.8rem,3.5vw,2.4rem); font-weight: 900; color: white; line-height: 1.15; margin-bottom: 1rem; }
   .donate-desc { color: rgba(255,255,255,0.78); font-weight: 600; font-size: 0.92rem; margin-bottom: 1.5rem; }
   .impact-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem; }
@@ -205,12 +195,11 @@
   /* SPONSORS */
   #sponsors { background: var(--warm-white); }
   .sponsor-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 1.5rem; margin-bottom: 2.5rem; }
-  .sponsor-card { background: white; border-radius: 20px; overflow: hidden; border: 1px solid rgba(33,114,75,0.1); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
-  .sponsor-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(22,74,49,0.1); }
+  .sponsor-card { background: white; border-radius: 20px; overflow: hidden; border: 1px solid rgba(33,114,75,0.1); transition: border-color 0.2s; display: flex; flex-direction: column; }
+  .sponsor-card:hover { border-color: rgba(33,114,75,0.3); }
   .sponsor-logo-wrap { background: var(--cream); padding: 2.5rem 2rem; display: flex; align-items: center; justify-content: center; min-height: 140px; }
   .sponsor-logo-wrap img { max-width: 100%; max-height: 80px; object-fit: contain; display: block; }
   .sponsor-card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
-  .sponsor-tier { display: inline-block; background: var(--green-pale); color: var(--green-mid); font-size: 0.68rem; font-weight: 800; padding: 0.2rem 0.7rem; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.65rem; width: fit-content; }
   .sponsor-card-body h3 { font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 900; color: var(--text-dark); margin-bottom: 0.5rem; }
   .sponsor-card-body p { font-size: 0.86rem; color: var(--text-muted); font-weight: 600; line-height: 1.65; margin-bottom: 1.25rem; flex: 1; }
   .sponsor-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.85rem; font-weight: 800; color: var(--green-mid); text-decoration: none; transition: color 0.15s; }
@@ -317,14 +306,8 @@
 </nav>
 
 <section id="home" class="page-section active">
-  <div class="blob blob-1"></div>
-  <div class="blob blob-2"></div>
   <div class="hero-grid">
     <div>
-      <div class="hero-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px;"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-        Bellevue, WA &nbsp;·&nbsp; Grant-funded 501(c)(3) Nonprofit
-      </div>
       <h1 class="hero-title">Empowering youth<br>through <em>soccer</em></h1>
       <p class="hero-desc">A nonprofit organization providing free soccer camps that foster teamwork, mentorship, and personal growth for kids across the Bellevue area.</p>
       <div class="hero-btns">
@@ -363,7 +346,6 @@
   <div class="section-inner">
     <div class="about-grid">
       <div>
-        <span class="section-tag">Our Story</span>
         <h2 class="section-title">About Soccer for Change</h2>
         <div class="about-col">
           <h3>Who we are</h3>
@@ -416,7 +398,6 @@
 
 <section id="team" class="page-section">
   <div class="section-inner">
-    <span class="section-tag">Leadership</span>
     <h2 class="section-title">Meet the Team</h2>
     <p class="section-desc">Our coaches are passionate high school athletes dedicated to giving back to the Bellevue community.</p>
 
@@ -485,7 +466,6 @@
 
 <section id="register" class="page-section">
   <div class="section-inner">
-    <span class="section-tag orange">Camps</span>
     <h2 class="section-title">Camp Registration</h2>
     <p class="section-desc">All camps are completely free for all participants.</p>
 
@@ -562,7 +542,6 @@
   <div class="section-inner">
     <div class="donate-inner">
       <div>
-        <span class="donate-tag">Support Our Mission</span>
         <h2 class="donate-title">Thank you to all our donors!</h2>
         <p class="donate-desc">Your generous support helps us continue these camps and give back to the community. We also accept employer donation matching.</p>
         <ul class="impact-list">
@@ -609,7 +588,6 @@
 
 <section id="sponsors" class="page-section">
   <div class="section-inner">
-    <span class="section-tag orange">Community Partners</span>
     <h2 class="section-title">Our Sponsors</h2>
     <p class="section-desc">We're grateful to the local businesses that partner with us to keep every camp free for Bellevue families.</p>
 
@@ -621,7 +599,6 @@
           </a>
         </div>
         <div class="sponsor-card-body">
-          <span class="sponsor-tier">Wellness Partner</span>
           <h3>HopeSpring Wellness</h3>
           <p>HopeSpring Wellness is a Bellevue acupuncture and Chinese herbal medicine clinic that has served the Eastside since 2005. Their experienced practitioners specialize in care for pain relief, stress, sleep, and overall wellbeing — helping our coaches and community recover and feel their best, on and off the field.</p>
           <a class="sponsor-link" href="https://www.hopespringwellness.com" target="_blank" rel="noopener noreferrer">Visit Website →</a>
@@ -641,7 +618,6 @@
   <div class="section-inner">
     <div class="contact-grid">
       <div class="contact-info">
-        <span class="section-tag">Get In Touch</span>
         <h3>We'd love to hear from you</h3>
         <p>Questions about registration, volunteering, or partnering with us?</p>
         <a class="contact-detail" href="mailto:contact@soccerforchange.org">
