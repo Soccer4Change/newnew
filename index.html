@@ -16,7 +16,7 @@
     --orange: #FF6B35;         /* Energetic modern coral-orange for action items */
     --orange-dark: #D64513;    /* Deep hover accent coral */
     --orange-light: #FFF0EA;   /* Light background contrast accent */
-    --amber: #FFB300;
+    --amber: #C99A3F;
     --cream: #FAF6F0;          /* Elegant warm soft cream backdrop */
     --warm-white: #ffffff; 
     --text-dark: #111C16;      /* High contrast dark text with a deep forest undertone */
@@ -72,7 +72,9 @@
   .btn-primary:hover { background: var(--orange-dark); }
   .btn-secondary { background: rgba(255,255,255,0.15); color: white; border: 2px solid rgba(255,255,255,0.4); }
   .btn-secondary:hover { background: rgba(255,255,255,0.25); }
-  .hero-card { background: var(--green-mid); border-radius: 20px; padding: 2rem; }
+  .hero-card { background: var(--green-mid); border-radius: 20px; overflow: hidden; }
+  .hero-card-photo { width: 100%; height: 260px; object-fit: cover; object-position: center; display: block; }
+  .hero-card-stats { padding: 1.25rem; }
   .stat-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem; }
   .stat-box { background: var(--green-dark); border-radius: 10px; padding: 0.85rem; text-align: center; }
   .stat-num { font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 900; color: white; display: block; }
@@ -159,8 +161,7 @@
   .view-photos-hint { font-size: 0.78rem; font-weight: 800; color: var(--green-mid); }
 
   /* DONATIONS */
-  #donations { background: var(--green-dark); position: relative; overflow: hidden; }
-  #donations::before { content:''; position:absolute; width:400px; height:400px; background:var(--green-mid); border-radius:50%; top:-200px; right:-150px; opacity:0.25; pointer-events:none; }
+  #donations { background: var(--green-dark); position: relative; }
   .donate-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
   @media(max-width:760px) { .donate-inner { grid-template-columns: 1fr; } }
   .donate-title { font-family: 'Fraunces', serif; font-size: clamp(1.8rem,3.5vw,2.4rem); font-weight: 900; color: white; line-height: 1.15; margin-bottom: 1rem; }
@@ -194,7 +195,8 @@
 
   /* SPONSORS */
   #sponsors { background: var(--warm-white); }
-  .sponsor-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 1.5rem; margin-bottom: 2.5rem; }
+  .sponsor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  @media(max-width:760px) { .sponsor-grid { grid-template-columns: 1fr; } }
   .sponsor-card { background: white; border-radius: 20px; overflow: hidden; border: 1px solid rgba(33,114,75,0.1); transition: border-color 0.2s; display: flex; flex-direction: column; }
   .sponsor-card:hover { border-color: rgba(33,114,75,0.3); }
   .sponsor-logo-wrap { background: var(--cream); padding: 2.5rem 2rem; display: flex; align-items: center; justify-content: center; min-height: 140px; }
@@ -204,9 +206,9 @@
   .sponsor-card-body p { font-size: 0.86rem; color: var(--text-muted); font-weight: 600; line-height: 1.65; margin-bottom: 1.25rem; flex: 1; }
   .sponsor-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.85rem; font-weight: 800; color: var(--green-mid); text-decoration: none; transition: color 0.15s; }
   .sponsor-link:hover { color: var(--green-dark); }
-  .sponsor-cta { background: var(--cream); border-radius: 20px; padding: 2.5rem; text-align: center; }
-  .sponsor-cta h3 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 900; margin-bottom: 0.5rem; }
-  .sponsor-cta p { color: var(--text-muted); font-weight: 600; font-size: 0.92rem; max-width: 480px; margin: 0 auto 1.5rem; }
+  .sponsor-cta { background: var(--cream); border-radius: 20px; padding: 2.5rem; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
+  .sponsor-cta h3 { font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 900; margin-bottom: 0.6rem; }
+  .sponsor-cta p { color: var(--text-muted); font-weight: 600; font-size: 0.92rem; margin-bottom: 1.5rem; line-height: 1.65; }
 
   /* FOOTER SPONSOR STRIP */
   .sponsor-strip { max-width: 1100px; margin: 0 auto 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; flex-wrap: wrap; gap: 1.25rem 2rem; }
@@ -317,25 +319,13 @@
     </div>
     <div class="hero-visual">
       <div class="hero-card">
-        <svg viewBox="0 0 340 200" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;border-radius:14px;margin-bottom:1.25rem;">
-          <rect width="340" height="200" fill="#21724b" rx="14"/>
-          <rect x="0" y="0" width="42" height="200" fill="rgba(255,255,255,0.04)"/>
-          <rect x="85" y="0" width="42" height="200" fill="rgba(255,255,255,0.04)"/>
-          <rect x="170" y="0" width="42" height="200" fill="rgba(255,255,255,0.04)"/>
-          <rect x="255" y="0" width="42" height="200" fill="rgba(255,255,255,0.04)"/>
-          <line x1="170" y1="0" x2="170" y2="200" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
-          <circle cx="170" cy="100" r="45" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" fill="none"/>
-          <rect x="0" y="55" width="60" height="90" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" fill="none"/>
-          <rect x="0" y="75" width="25" height="50" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" fill="none"/>
-          <rect x="280" y="55" width="60" height="90" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" fill="none"/>
-          <rect x="315" y="75" width="25" height="50" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" fill="none"/>
-          <circle cx="170" cy="100" r="10" fill="white" opacity="0.9"/>
-          <path d="M170 90 L165 97 L170 104 L175 97 Z" fill="#164a31" opacity="0.6"/>
-        </svg>
-        <div class="stat-row">
-          <div class="stat-box"><span class="stat-num">60+</span><span class="stat-label">Kids Served</span></div>
-          <div class="stat-box"><span class="stat-num">$0</span><span class="stat-label">Cost to Join</span></div>
-          <div class="stat-box"><span class="stat-num">10</span><span class="stat-label">Coaches</span></div>
+        <img src="images/summer2025.jpg" alt="Kids at Soccer for Change camp" class="hero-card-photo" />
+        <div class="hero-card-stats">
+          <div class="stat-row">
+            <div class="stat-box"><span class="stat-num">60+</span><span class="stat-label">Kids Served</span></div>
+            <div class="stat-box"><span class="stat-num">$0</span><span class="stat-label">Cost to Join</span></div>
+            <div class="stat-box"><span class="stat-num">10</span><span class="stat-label">Coaches</span></div>
+          </div>
         </div>
       </div>
     </div>
@@ -604,12 +594,11 @@
           <a class="sponsor-link" href="https://www.hopespringwellness.com" target="_blank" rel="noopener noreferrer">Visit Website →</a>
         </div>
       </div>
-    </div>
-
-    <div class="sponsor-cta">
-      <h3>Interested in Sponsoring Soccer for Change?</h3>
-      <p>Partner with us to help provide free soccer camps to Bellevue youth. We offer logo placement on our site, social media shoutouts, and recognition at camps.</p>
-      <a href="https://forms.gle/ctvLYcwRpUgVyidY9" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display:inline-flex;">Become a Sponsor →</a>
+      <div class="sponsor-cta">
+        <h3>Interested in Sponsoring Soccer for Change?</h3>
+        <p>Partner with us to help provide free soccer camps to Bellevue youth. We offer logo placement on our site, social media shoutouts, and recognition at camps.</p>
+        <a href="https://forms.gle/ctvLYcwRpUgVyidY9" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display:inline-flex;">Become a Sponsor →</a>
+      </div>
     </div>
   </div>
 </section>
@@ -798,9 +787,22 @@
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
         </div>
         <h3>Photos coming soon!</h3>
-        <p>To add photos, upload images to your GitHub <code>images/</code> folder and add the filenames to the <code>campGalleries</code> array in the script.</p>
+        <p>Upload images to your GitHub <code>images/</code> folder and add the filenames to the <code>campGalleries</code> array in the script.</p>
       </div>`;
     } else {
+      let loaded = 0, failed = 0;
+      const total = validPhotos.length;
+      function checkAllFailed() {
+        if (loaded + failed === total && loaded === 0) {
+          grid.innerHTML = `<div class="gallery-empty" style="grid-column:1/-1">
+            <div class="empty-icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+            </div>
+            <h3>Photos coming soon!</h3>
+            <p>Upload images to your GitHub <code>images/</code> folder and add the filenames to the <code>campGalleries</code> array in the script.</p>
+          </div>`;
+        }
+      }
       validPhotos.forEach(src => {
         const thumb = document.createElement('div');
         thumb.className = 'gallery-thumb';
@@ -808,7 +810,8 @@
         const img = document.createElement('img');
         img.src = src;
         img.alt = camp.title;
-        img.onerror = () => thumb.remove();
+        img.onload = () => { loaded++; };
+        img.onerror = () => { failed++; thumb.remove(); checkAllFailed(); };
         thumb.appendChild(img);
         grid.appendChild(thumb);
       });
